@@ -1,0 +1,1099 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ODÜSOBİAD · Editöryal Mesaj Bankası</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<script>
+(function (global) {
+  'use strict';
+  var ODUSOBIAD_MESSAGES = {
+    version: '3.0',
+    journal: {
+      name: 'Ordu Üniversitesi Sosyal Bilimler Araştırmaları Dergisi',
+      abbr: 'ODÜSOBİAD',
+      doi: '10.48146/odusobiad',
+      email: 'odusobiad@odu.edu.tr',
+      url: 'https://dergipark.org.tr/tr/pub/odusobiad'
+    },
+    roles: [
+      { id: 'eic',    color: '#0F2744', icon: '👑', label: { en: 'Editor-in-Chief',   tr: 'Baş Editör'           } },
+      { id: 'se',     color: '#1B4F8A', icon: '📋', label: { en: 'Section Editor',     tr: 'Alan Editörü'         } },
+      { id: 'stat',   color: '#2E7D96', icon: '📊', label: { en: 'Statistics Editor',  tr: 'İstatistik Editörü'   } },
+      { id: 'lang',   color: '#795700', icon: '✍️', label: { en: 'Language Editor',    tr: 'Dil Editörü'          } },
+      { id: 'layout', color: '#6B3A7A', icon: '🎨', label: { en: 'Layout Editor',      tr: 'Mizanpaj Editörü'     } },
+      { id: 'sec',    color: '#5C4033', icon: '📌', label: { en: 'Secretary',           tr: 'Sekreter'             } }
+    ],
+    stages: [
+      { id: 'desk',         label: { en: 'Desk Review',      tr: 'Ön Değerlendirme'    } },
+      { id: 'integrity',    label: { en: 'Integrity Check',  tr: 'Bütünlük Kontrolü'   } },
+      { id: 'review',       label: { en: 'Peer Review',      tr: 'Hakemlik'            } },
+      { id: 'revision',     label: { en: 'Revision',         tr: 'Revizyon'            } },
+      { id: 'decision',     label: { en: 'Decision',         tr: 'Karar'               } },
+      { id: 'copyediting',  label: { en: 'Copyediting',      tr: 'Dil Düzenleme'       } },
+      { id: 'layout',       label: { en: 'Layout',           tr: 'Mizanpaj'            } },
+      { id: 'proofreading', label: { en: 'Proofreading',     tr: 'Son Okuma'           } },
+      { id: 'production',   label: { en: 'Production',       tr: 'Yayın'               } },
+      { id: 'postpub',      label: { en: 'Post-Publication', tr: 'Yayın Sonrası'       } },
+      { id: 'other',        label: { en: 'Other',            tr: 'Diğer'               } }
+    ],
+    sections: [
+      { id: 'A', color: '#1B4F8A', label: { en: 'System Messages', tr: 'Sistem Mesajları' } },
+      { id: 'B', color: '#C00000', label: { en: 'Decision Responses', tr: 'Karar Cevapları' } },
+      { id: 'C', color: '#1B5E20', label: { en: 'Information Messages', tr: 'Bilgilendirme Mesajları' } },
+      { id: 'D', color: '#E65100', label: { en: 'SCOPUS Criteria', tr: 'SCOPUS Kriterleri' } },
+      { id: 'E', color: '#8B0000', label: { en: 'COPE Ethics', tr: 'COPE Etik İhlal' } },
+      { id: 'F', color: '#0F2744', label: { en: 'Process & Publication', tr: 'Süreç & Yayın' } }
+    ],
+    messages: [
+      {
+        id: 'a1a', role: 'eic', stage: 'desk',
+        cope: false, scopus: false,
+        title: { en: 'Editorial Evaluation Result', tr: 'Editoryal Değerlendirme Sonucu' },
+        subject: {
+          en: 'Editorial Evaluation Result — ODÜSOBİAD [Ref: {ID}]',
+          tr: 'Editoryal Değerlendirme Sonucu — ODÜSOBİAD [Ref: {ID}]'
+        },
+        body: {
+          en: `Dear Author(s),
+
+The preliminary editorial evaluation of "[Manuscript Title (EN)]" (Manuscript No: [XXXXXXX]) has been completed.
+
+The Editorial Evaluation Report and Decision Letter have been uploaded to the Process Files section of your manuscript page. Please review these documents carefully and make all required revisions accordingly.
+
+Please upload your revised manuscript and Response Letter within [__] days via the system. Failure to submit within this period will result in automatic withdrawal of your submission. Extension requests must be submitted in writing in advance.
+
+Sincerely,
+ODÜSOBİAD Editorial Office
+dergipark.org.tr/odusobiad`,
+          tr: `Sayın Yazar(lar),
+
+"[Makale Başlığı (TR)]" başlıklı makalenizin (Makale No: [XXXXXXX]) ön editoryal değerlendirmesi tamamlanmıştır.
+
+Editoryal Değerlendirme Raporu ve Karar Mektubu, makale sayfanızın Süreç Dosyaları bölümüne eklenmiştir. Lütfen söz konusu belgeleri inceleyerek talep edilen düzeltmeleri gerçekleştiriniz.
+
+Revize makalenizi ve Yanıt Mektubunu (Response Letter) [__] gün içinde sistem üzerinden yüklemenizi rica ederiz. Bu süre içinde yükleme yapılmaması hâlinde başvurunuz iptal edilmiş sayılacaktır; ek süre taleplerinizi önceden yazılı olarak iletiniz.
+
+Saygılarımızla,
+ODÜSOBİAD Editörlüğü
+dergipark.org.tr/odusobiad`
+        }
+      },
+
+      {
+        id: 'a1b', role: 'eic', stage: 'desk',
+        cope: false, scopus: false,
+        title: { en: 'Editorial Evaluation Result', tr: 'Editoryal Değerlendirme Sonucu' },
+        subject: {
+          en: 'Editorial Evaluation Result — ODÜSOBİAD [Ref: {ID}]',
+          tr: 'Editoryal Değerlendirme Sonucu — ODÜSOBİAD [Ref: {ID}]'
+        },
+        body: {
+          en: `Dear Author(s),
+
+The editorial evaluation of "[Manuscript Title]" (No: [XXXXXXX]) has been completed. Please make the necessary revisions per the Process Files documents and upload within [__] days.
+
+Sincerely, ODÜSOBİAD Editorial Office`,
+          tr: `Sayın Yazar(lar),
+
+"[Makale Başlığı]" başlıklı makalenizin (No: [XXXXXXX]) editoryal değerlendirmesi tamamlanmıştır. Süreç Dosyaları bölümündeki belgeler doğrultusunda düzeltmeleri yaparak revize makalenizi [__] gün içinde sisteme yükleyiniz.
+
+Saygılarımızla, ODÜSOBİAD Editörlüğü`
+        }
+      },
+
+      {
+        id: 'a2a', role: 'eic', stage: 'revision',
+        cope: false, scopus: false,
+        title: { en: 'Post-Review Revision Request', tr: 'Hakem Değerlendirmesi Sonrası Revizyon Talebi' },
+        subject: {
+          en: 'Post-Review Revision Request — ODÜSOBİAD [Ref: {ID}]',
+          tr: 'Hakem Değerlendirmesi Sonrası Revizyon Talebi — ODÜSOBİAD [Ref: {ID}]'
+        },
+        body: {
+          en: `Dear Author(s),
+
+Peer review of "[Manuscript Title]" (No: [XXXXXXX]) has been completed. Reviewer reports and the Decision Letter have been uploaded to Process Files.
+
+Please address the reviewers' comments and upload your revised manuscript with a Response Letter within [__] days.
+
+Sincerely,
+ODÜSOBİAD Editorial Office`,
+          tr: `Sayın Yazar(lar),
+
+"[Makale Başlığı]" başlıklı makalenizin (No: [XXXXXXX]) hakem değerlendirmesi tamamlanmıştır. Hakem raporları ve Karar Mektubu Süreç Dosyaları bölümüne eklenmiştir.
+
+Hakem önerilerini dikkate alarak gerekli düzenlemeleri yapmanızı, revize makale dosyası ile Yanıt Mektubunu (Response Letter) birlikte [__] gün içinde sisteme yüklemenizi rica ederiz.
+
+Saygılarımızla,
+ODÜSOBİAD Editörlüğü`
+        }
+      },
+
+      {
+        id: 'a2b', role: 'eic', stage: 'revision',
+        cope: false, scopus: false,
+        title: { en: 'Post-Review Revision Request', tr: 'Hakem Değerlendirmesi Sonrası Revizyon Talebi' },
+        subject: {
+          en: 'Post-Review Revision Request — ODÜSOBİAD [Ref: {ID}]',
+          tr: 'Hakem Değerlendirmesi Sonrası Revizyon Talebi — ODÜSOBİAD [Ref: {ID}]'
+        },
+        body: {
+          en: `Dear author, please address the reviewers' comments and upload your revised manuscript and Response Letter separately. Best regards.`,
+          tr: `Sayın yazar, hakem önerilerini dikkate alarak gerekli düzeltmeleri yapıp makale dosyası ve Yanıt Mektubunu ayrı ayrı sisteme yükleyiniz. İyi çalışmalar dileriz.`
+        }
+      },
+
+      {
+        id: 'a3a', role: 'eic', stage: 'proofreading',
+        cope: false, scopus: false,
+        title: { en: 'Proofreading Request', tr: 'Son Okuma (Proofreading) Talebi' },
+        subject: {
+          en: 'Proofreading Request — ODÜSOBİAD [Ref: {ID}]',
+          tr: 'Son Okuma (Proofreading) Talebi — ODÜSOBİAD [Ref: {ID}]'
+        },
+        body: {
+          en: `Dear Author(s),
+
+Please download your manuscript and make the following updates in accordance with the journal template:
+
+- Author details and ORCID links
+- Thesis/conference origin note if applicable
+- Conflict of interest and acknowledgements
+- In-text citations and references (APA 7)
+- Abstract, title and metadata (EN-TR order)
+
+Additionally, please arrange an English proofreading from an independent institution and upload the QR-coded certificate and tracked-changes file.
+
+Note: The journal is not responsible for author-related errors identified after publication.
+
+Sincerely,
+ODÜSOBİAD Editorial Office`,
+          tr: `Sayın Yazar(lar),
+
+Makalenizin güncel versiyonunu indirip güncel makale şablonuna uygun olacak şekilde aşağıdaki düzenlemeleri yapmanızı rica ederiz:
+
+- Yazar kişisel bilgileri ve ORCID bağlantıları
+- Tezden/bildiriden üretilmişse ilgili bilgi
+- Çıkar çatışması ve teşekkür ifadesi
+- Metin içi atıflar ve kaynakça (APA 7)
+- Özet, başlık ve üst veriler (İngilizce–Türkçe sıralamasına dikkat)
+
+Ayrıca bağımsız bir kurumdan karekodlu proofreading sertifikası ile değişikliklerin izlendiği dosyayı revize makaleyle birlikte sisteme yüklemenizi bekliyoruz.
+
+Not: Sayı yayımlandıktan sonra fark edilen yazar kaynaklı hatalardan dergimiz sorumlu değildir.
+
+Saygılarımızla,
+ODÜSOBİAD Editörlüğü`
+        }
+      },
+
+      {
+        id: 'a3b', role: 'eic', stage: 'proofreading',
+        cope: false, scopus: false,
+        title: { en: 'Proofreading — Track Changes Version', tr: 'Son Okuma — Değişiklikleri İzle Versiyonu' },
+        subject: {
+          en: 'Proofreading — Track Changes Version — ODÜSOBİAD [Ref: {ID}]',
+          tr: 'Son Okuma — Değişiklikleri İzle Versiyonu — ODÜSOBİAD [Ref: {ID}]'
+        },
+        body: {
+          en: `Dear author, please upload the version of your proofread manuscript with "Track Changes" enabled so that all corrections are visible in the document.`,
+          tr: `Sayın yazar, proofreading yapılan makale dosyanızın "değişiklikleri izle" özelliği açık olan ve yapılan düzeltmelerin görülebildiği versiyonunu sisteme yüklemeniz gerekmektedir.`
+        }
+      },
+
+      {
+        id: 'a4', role: 'sec', stage: 'production',
+        cope: false, scopus: false,
+        title: { en: 'Reference List Request', tr: 'Kaynakça Dosyası Talebi' },
+        subject: {
+          en: 'Reference List Request — ODÜSOBİAD [Ref: {ID}]',
+          tr: 'Kaynakça Dosyası Talebi — ODÜSOBİAD [Ref: {ID}]'
+        },
+        body: {
+          en: `Dear author, please send your APA 7 reference list as a separate Word document (one blank line between entries) including your manuscript ID to odusobiaddergi@gmail.com. Disregard if already sent.
+
+Sincerely, ODÜSOBİAD Editorial Office`,
+          tr: `Sayın yazar, makalenizin güncel kaynakçasını APA 7'ye uygun olarak, aralarında birer satır boşluk bırakarak ayrı bir Word dosyası hâlinde makale ID numarasını da yazarak odusobiaddergi@gmail.com adresine iletmenizi rica ederiz. Kaynakçayı daha önce gönderdiyseniz bu mesajı dikkate almayınız.
+
+Saygılarımızla, ODÜSOBİAD Editörlüğü`
+        }
+      },
+
+      {
+        id: 'a5', role: 'eic', stage: 'layout',
+        cope: false, scopus: false,
+        title: { en: 'Updated Template Request', tr: 'Güncel Makale Şablonu Talebi' },
+        subject: {
+          en: 'Updated Template Request — ODÜSOBİAD [Ref: {ID}]',
+          tr: 'Güncel Makale Şablonu Talebi — ODÜSOBİAD [Ref: {ID}]'
+        },
+        body: {
+          en: `Dear author, the journal's manuscript template has been updated. Please reformat your manuscript according to the new template, complete a final proofread, and resubmit via the system.
+
+Sincerely, ODÜSOBİAD Editorial Office`,
+          tr: `Sayın yazar, dergimizin makale şablonu güncellenmiştir. Makalenizin güncel hâlini yeni şablona göre uyarlayıp son okumanızı da yaparak sisteme yükleyiniz.
+
+Saygılarımızla, ODÜSOBİAD Editörlüğü`
+        }
+      },
+
+      {
+        id: 'a6', role: 'eic', stage: 'other',
+        cope: false, scopus: false,
+        title: { en: 'English Publication Policy Notice', tr: 'İngilizce Yayım Politikası Bilgilendirmesi' },
+        subject: {
+          en: 'English Publication Policy Notice — ODÜSOBİAD [Ref: {ID}]',
+          tr: 'İngilizce Yayım Politikası Bilgilendirmesi — ODÜSOBİAD [Ref: {ID}]'
+        },
+        body: {
+          en: `Dear author, pursuant to the institutional board decision, manuscripts uploaded after 05.01.2024 will be published in English, or bilingually, starting from March 2025. Please translate, proofread, and upload the tracked-changes Word file and proofreading certificate. Best regards.`,
+          tr: `Sayın yazar, enstitü yönetim kurulu kararı gereği 05.01.2024 tarihinden sonra yüklenen makaleler 2025 yılı Mart sayısından itibaren İngilizce veya hem İngilizce hem Türkçe yayımlanacaktır. Makalenizi İngilizceye çevirip proofreading yaptırdıktan sonra "değişiklikleri izle" açık Word dosyasını ve proofreading belgesini sisteme yüklemeniz gerekmektedir. İyi çalışmalar dileriz.`
+        }
+      },
+
+      {
+        id: 'a7', role: 'lang', stage: 'copyediting',
+        cope: false, scopus: false,
+        title: { en: 'Academic Editing Request', tr: 'Akademik Redaksiyon Talebi' },
+        subject: {
+          en: 'Academic Editing Request — ODÜSOBİAD [Ref: {ID}]',
+          tr: 'Akademik Redaksiyon Talebi — ODÜSOBİAD [Ref: {ID}]'
+        },
+        body: {
+          en: `Dear author(s), manuscripts must undergo academic editing by an independent organization. This includes correcting structural/grammar issues, reformatting citations and references to APA 7, and adapting tables/figures to journal standards. Proofreading and a QR-coded certificate are mandatory for English manuscripts.`,
+          tr: `Değerli yazar(lar), yayın sürecine alınacak çalışmaların bağımsız editing kuruluşlarına akademik redaksiyon yaptırılması gerekmektedir. Kapsam: anlatım bozukluklarının giderilmesi, yazım ve noktalama düzeltmeleri, metin içi atıf ve kaynakçanın APA 7'ye uygun hâle getirilmesi, tablo/grafik/görsellerin dergi kurallarına uyarlanması. Çalışma İngilizce ise proofreading ve karekodlu sertifika zorunludur.`
+        }
+      },
+
+      {
+        id: 'b1', role: 'eic', stage: 'decision',
+        cope: false, scopus: false,
+        title: { en: 'Acceptance — Conditional', tr: 'Kabul — Koşullu' },
+        subject: {
+          en: 'Acceptance — Conditional — ODÜSOBİAD [Ref: {ID}]',
+          tr: 'Kabul — Koşullu — ODÜSOBİAD [Ref: {ID}]'
+        },
+        body: {
+          en: `Dear author, your manuscript has been accepted subject to the revisions recommended by the reviewers. Please upload the revised file and your Response Letter to the system. Best regards.`,
+          tr: `Sayın yazar, hakem önerilerini dikkate alarak gerekli düzeltmeleri yapmanız koşuluyla makaleniz kabul edilmiştir. Revize dosyayı ve Yanıt Mektubunu sisteme yüklemenizi rica ederiz. İyi çalışmalar dileriz.`
+        }
+      },
+
+      {
+        id: 'b2a', role: 'eic', stage: 'decision',
+        cope: false, scopus: false,
+        title: { en: 'Rejection — Timeout', tr: 'Ret — Zamanaşımı' },
+        subject: {
+          en: 'Rejection — Timeout — ODÜSOBİAD [Ref: {ID}]',
+          tr: 'Ret — Zamanaşımı — ODÜSOBİAD [Ref: {ID}]'
+        },
+        body: {
+          en: `Dear author, your manuscript has been rejected as the required revisions were not submitted within the specified timeframe. Thank you and best regards.`,
+          tr: `Sayın yazar, düzeltmelerin belirlenen süre içinde sisteme yüklenmemesi nedeniyle makaleniz reddedilmiştir. Teşekkür eder, iyi çalışmalar dileriz.`
+        }
+      },
+
+      {
+        id: 'b2b', role: 'eic', stage: 'decision',
+        cope: false, scopus: false,
+        title: { en: 'Rejection — High Similarity Rate', tr: 'Ret — Yüksek Benzerlik Oranı' },
+        subject: {
+          en: 'Rejection — High Similarity Rate — ODÜSOBİAD [Ref: {ID}]',
+          tr: 'Ret — Yüksek Benzerlik Oranı — ODÜSOBİAD [Ref: {ID}]'
+        },
+        body: {
+          en: `Dear author, your manuscript was rejected as its similarity rate exceeds our journal's threshold. We would be happy to consider your future submissions. Best regards.`,
+          tr: `Değerli yazar, makalenizin benzerlik oranı dergimizin belirlediği sınırın üzerinde olduğu için reddedilmiştir. Diğer çalışmalarınızı değerlendirmeyi isteriz. İyi çalışmalar dileriz.`
+        }
+      },
+
+      {
+        id: 'b2c', role: 'eic', stage: 'decision',
+        cope: false, scopus: false,
+        title: { en: 'Rejection — Based on Reviewer Reports', tr: 'Ret — Hakem Raporları Doğrultusunda' },
+        subject: {
+          en: 'Rejection — Based on Reviewer Reports — ODÜSOBİAD [Ref: {ID}]',
+          tr: 'Ret — Hakem Raporları Doğrultusunda — ODÜSOBİAD [Ref: {ID}]'
+        },
+        body: {
+          en: `Dear author, following review of the peer review reports and editorial decision, your manuscript has been rejected. Best regards.`,
+          tr: `Sayın yazar, hakem raporları ve editör kararı incelendikten sonra makalenizin reddedilmesine karar verilmiştir. İyi çalışmalar dileriz.`
+        }
+      },
+
+      {
+        id: 'b2d', role: 'eic', stage: 'decision',
+        cope: false, scopus: false,
+        title: { en: 'Rejection with Decision Letter', tr: 'Ret — Karar Mektubu ile Birlikte' },
+        subject: {
+          en: 'Rejection with Decision Letter — ODÜSOBİAD [Ref: {ID}]',
+          tr: 'Ret — Karar Mektubu ile Birlikte — ODÜSOBİAD [Ref: {ID}]'
+        },
+        body: {
+          en: `Dear author, your manuscript has been reviewed by the editorial board and found not suitable for our journal. The Decision Letter with rejection reasons has been uploaded to the Process Files section. Best regards.`,
+          tr: `Sayın yazar, makaleniz editör kurulu tarafından incelenmiş ve dergimizde değerlendirilmesine uygun bulunmamıştır. Ret gerekçelerinin yer aldığı Karar Mektubu Süreç Dosyaları bölümüne eklenmiştir. İyi çalışmalar dileriz.`
+        }
+      },
+
+      {
+        id: 'c1', role: 'sec', stage: 'other',
+        cope: false, scopus: false,
+        title: { en: 'Publication Delay Explanation', tr: 'Yayımlanmama Süreci Açıklaması' },
+        subject: {
+          en: 'Publication Delay Explanation — ODÜSOBİAD [Ref: {ID}]',
+          tr: 'Yayımlanmama Süreci Açıklaması — ODÜSOBİAD [Ref: {ID}]'
+        },
+        body: {
+          en: `Dear author, the evaluation and finalization processes for each manuscript proceed at different rates due to various human factors. Manuscripts that complete the process are prepared for publication in order of submission date. Thank you for your understanding and best regards.`,
+          tr: `Sayın yazar, bildiğiniz üzere her makalenin değerlendirme ve sonuçlandırma süreci farklı insan faktörü nedeniyle maalesef aynı anda ilerleyememektedir. Süreci tamamlanan makaleler, gönderim tarihi esas alınarak yayıma hazır hâle getirilmektedir. Anlayışınız için teşekkür eder, iyi çalışmalar dileriz.`
+        }
+      },
+
+      {
+        id: 'c2a', role: 'eic', stage: 'review',
+        cope: false, scopus: false,
+        title: { en: 'Reviewer Suggestion Request', tr: 'Hakem Önerisi Talebi' },
+        subject: {
+          en: 'Reviewer Suggestion Request — ODÜSOBİAD [Ref: {ID}]',
+          tr: 'Hakem Önerisi Talebi — ODÜSOBİAD [Ref: {ID}]'
+        },
+        body: {
+          en: `Dear colleague, could you suggest at least 2 reviewers who could provide a detailed and timely review for your manuscript? Name, institution, and email address would be sufficient. Best regards.`,
+          tr: `Değerli hocam, makaleniz için ayrıntılı ve hızlı hakemlik yapabilecek en az 2 hakem önerebilir misiniz? Ad soyad, kurum ve e-posta adresi yeterli olacaktır. İyi çalışmalar dileriz.`
+        }
+      },
+
+      {
+        id: 'c2b', role: 'eic', stage: 'review',
+        cope: false, scopus: false,
+        title: { en: 'Reviewer Suggestion — Special Issue', tr: 'Hakem Önerisi Talebi — Özel Sayı' },
+        subject: {
+          en: 'Reviewer Suggestion — Special Issue — ODÜSOBİAD [Ref: {ID}]',
+          tr: 'Hakem Önerisi Talebi — Özel Sayı — ODÜSOBİAD [Ref: {ID}]'
+        },
+        body: {
+          en: `Dear colleague, we would appreciate your suggestion of at least 2 qualified reviewers for your special issue submission. Please reply with their name, institution, and email address.`,
+          tr: `Değerli hocam, özel sayı için gönderdiğiniz makaleyi değerlendirmesi için nitelikli ve hızlı hakemlik yapabilecek en az 2 kişi önerirseniz memnun oluruz. Ad soyad, kurum ve e-posta bilgilerini bu mesaja yanıt olarak gönderebilirsiniz.`
+        }
+      },
+
+      {
+        id: 'c3', role: 'sec', stage: 'other',
+        cope: false, scopus: false,
+        title: { en: 'Special Issue — Reupload Required', tr: 'Özel Sayı — Makale Yeniden Yükleme' },
+        subject: {
+          en: 'Special Issue — Reupload Required — ODÜSOBİAD [Ref: {ID}]',
+          tr: 'Özel Sayı — Makale Yeniden Yükleme — ODÜSOBİAD [Ref: {ID}]'
+        },
+        body: {
+          en: `Dear author, please re-upload your manuscript to the system and remember to select the special issue option. (System closing: [DD.MM.YYYY at 00:00])`,
+          tr: `Değerli yazar, makalenizi sisteme tekrar yüklemeniz gerekmektedir. Yüklerken lütfen özel sayı seçeneğini seçmeyi unutmayınız. (Sistem kapanış tarihi: [GG.AA.YYYY saat 00:00])`
+        }
+      },
+
+      {
+        id: 'd1', role: 'eic', stage: 'desk',
+        cope: false, scopus: true,
+        title: { en: 'SCOPUS — English Abstract/Title Quality', tr: 'SCOPUS — İngilizce Özet/Başlık Kalite Uyarısı' },
+        subject: {
+          en: 'SCOPUS — English Abstract/Title Quality — ODÜSOBİAD [Ref: {ID}]',
+          tr: 'SCOPUS — İngilizce Özet/Başlık Kalite Uyarısı — ODÜSOBİAD [Ref: {ID}]'
+        },
+        body: {
+          en: `Dear author,
+
+SCOPUS indexing requirements mandate that the English title and abstract of your manuscript meet academic English standards. Our preliminary review has identified issues affecting language quality in the English sections.
+
+Please have your English title and abstract proofread by an independent institution and upload the verifiable QR-coded certificate to the system.
+
+Sincerely,
+ODÜSOBİAD Editorial Office`,
+          tr: `Sayın yazar,
+
+SCOPUS indeks gereksinimleri kapsamında makalenizin İngilizce başlığının ve özetinin akademik İngilizce standartlarını karşılaması zorunludur. Ön değerlendirmemizde İngilizce bölümlerde dil kalitesini etkileyen ifadeler tespit edilmiştir.
+
+Makalenizin İngilizce başlık ve özetini bağımsız bir kuruma proofreading yaptırarak revize etmenizi ve doğrulanabilir karekodlu sertifikayı sisteme yüklemenizi rica ederiz.
+
+Saygılarımızla,
+ODÜSOBİAD Editörlüğü`
+        }
+      },
+
+      {
+        id: 'd2', role: 'eic', stage: 'desk',
+        cope: false, scopus: true,
+        title: { en: 'SCOPUS — Missing Author Affiliation', tr: 'SCOPUS — Yazar Afiliasyonu Eksikliği' },
+        subject: {
+          en: 'SCOPUS — Missing Author Affiliation — ODÜSOBİAD [Ref: {ID}]',
+          tr: 'SCOPUS — Yazar Afiliasyonu Eksikliği — ODÜSOBİAD [Ref: {ID}]'
+        },
+        body: {
+          en: `Dear author, SCOPUS and international indexing requirements mandate full name, institutional affiliation, and country for all authors in manuscript metadata. This information appears missing for [author name / all authors]. Please update both the manuscript and the DergiPark metadata form.
+
+Sincerely, ODÜSOBİAD Editorial Office`,
+          tr: `Sayın yazar, SCOPUS ve uluslararası dizin gereksinimleri doğrultusunda tüm yazarların tam adı, kurumu ve ülke bilgisinin makale üst verisinde yer alması zorunludur. Makalenizde [yazar adı / tüm yazarlar] için kurum ve/veya ülke bilgisi eksik görünmektedir. Lütfen bu bilgileri ekleyerek makaleyi ve DergiPark üst veri formunu güncelleyiniz.
+
+Saygılarımızla, ODÜSOBİAD Editörlüğü`
+        }
+      },
+
+      {
+        id: 'd3', role: 'eic', stage: 'desk',
+        cope: false, scopus: true,
+        title: { en: 'SCOPUS — Missing DOI / Metadata Inconsistency', tr: 'SCOPUS — DOI Eksikliği / Metadata Tutarsızlığı' },
+        subject: {
+          en: 'SCOPUS — Missing DOI / Metadata Inconsistency — ODÜSOBİAD [Ref: {ID}]',
+          tr: 'SCOPUS — DOI Eksikliği / Metadata Tutarsızlığı — ODÜSOBİAD [Ref: {ID}]'
+        },
+        body: {
+          en: `Dear author, DOI information has not been added to references where available, and/or DergiPark metadata fields appear inconsistent with the manuscript file. This is critically important for international indexing. Please complete DOI information and update metadata fields.
+
+Sincerely, ODÜSOBİAD Editorial Office`,
+          tr: `Sayın yazar, makalenizin kaynakçasında mevcut kaynakların DOI bilgileri eklenmemiş ve/veya DergiPark üst veri alanlarındaki bilgiler makale dosyasıyla tutarsız görünmektedir. Uluslararası dizinleme süreçleri için bu bilgilerin eksiksiz ve tutarlı olması kritik önem taşımaktadır. Lütfen DOI bilgilerini tamamlayınız ve üst veri alanlarını güncelleyiniz.
+
+Saygılarımızla, ODÜSOBİAD Editörlüğü`
+        }
+      },
+
+      {
+        id: 'd4', role: 'eic', stage: 'integrity',
+        cope: true, scopus: true,
+        title: { en: 'SCOPUS/COPE — AI Use Disclosure', tr: 'SCOPUS/COPE — YZ Kullanım Beyanı Talebi' },
+        subject: {
+          en: 'SCOPUS/COPE — AI Use Disclosure — ODÜSOBİAD [Ref: {ID}]',
+          tr: 'SCOPUS/COPE — YZ Kullanım Beyanı Talebi — ODÜSOBİAD [Ref: {ID}]'
+        },
+        body: {
+          en: `Dear author, per SCOPUS and COPE 2024 requirements, if any AI tools were used in any part of your manuscript, this must be explicitly disclosed in the Methods or Acknowledgements section. If no AI tools were used, please add: "No AI tools were used in this study."
+
+Sincerely, ODÜSOBİAD Editorial Office`,
+          tr: `Sayın yazar, SCOPUS ve COPE 2024 gereksinimleri doğrultusunda makalenizin herhangi bir bölümünde yapay zeka araçları kullanıldıysa bu kullanımın Yöntem veya Teşekkür bölümünde açıkça beyan edilmesi gerekmektedir. Yapay zeka kullanılmadıysa "Bu çalışmada yapay zeka aracı kullanılmamıştır." şeklinde bir beyan eklemenizi talep ederiz.
+
+Saygılarımızla, ODÜSOBİAD Editörlüğü`
+        }
+      },
+
+      {
+        id: 'd5', role: 'eic', stage: 'desk',
+        cope: false, scopus: true,
+        title: { en: 'SCOPUS — International Scope / Citation Notice', tr: 'SCOPUS — Uluslararası Kapsam / Atıf Uyarısı' },
+        subject: {
+          en: 'SCOPUS — International Scope / Citation Notice — ODÜSOBİAD [Ref: {ID}]',
+          tr: 'SCOPUS — Uluslararası Kapsam / Atıf Uyarısı — ODÜSOBİAD [Ref: {ID}]'
+        },
+        body: {
+          en: `Dear author, connection to international literature is a key SCOPUS evaluation criterion. We recommend strengthening your literature review with recent international sources (last 5 years) and completing DOI information for all applicable references.
+
+Sincerely, ODÜSOBİAD Editorial Office`,
+          tr: `Sayın yazar, SCOPUS değerlendirme kriterleri arasında çalışmanın uluslararası literatürle bağlantısı önemli bir yer tutmaktadır. Makalenizin literatür taramasını güncel uluslararası kaynaklarla (son 5 yıl) güçlendirmenizi ve kaynakçanızdaki DOI bilgilerini tamamlamanızı tavsiye ederiz.
+
+Saygılarımızla, ODÜSOBİAD Editörlüğü`
+        }
+      },
+
+      {
+        id: 'e1', role: 'eic', stage: 'integrity',
+        cope: true, scopus: false,
+        title: { en: 'Plagiarism / High Similarity Investigation', tr: 'İntihal / Yüksek Benzerlik Soruşturması' },
+        subject: {
+          en: 'Plagiarism / High Similarity Investigation — ODÜSOBİAD [Ref: {ID}]',
+          tr: 'İntihal / Yüksek Benzerlik Soruşturması — ODÜSOBİAD [Ref: {ID}]'
+        },
+        body: {
+          en: `Dear author,
+
+A similarity check of "[Manuscript Title]" (No: [XXXXXXX]) has revealed a concerning level of similarity (%[rate]).
+
+An investigation has been initiated per COPE guidelines. Within [__] days, please upload:
+- A written explanation regarding the source of similarity
+- Any supporting documents affirming originality (if any)
+
+Failure to respond will result in rejection, and your institution will be informed if necessary.
+
+Sincerely, ODÜSOBİAD Editorial Office`,
+          tr: `Sayın yazar,
+
+"[Makale Başlığı]" başlıklı makalenizde (No: [XXXXXXX]) benzerlik taraması sonucunda kaygı verici düzeyde benzerlik (%[oran]) tespit edilmiştir.
+
+COPE yönergelerine uygun olarak soruşturma başlatılmış olup [__] gün içinde aşağıdaki bilgileri sisteme yüklemenizi bekliyoruz:
+- Benzerlik kaynağına ilişkin yazılı açıklamanız
+- Özgünlüğü destekleyen belgeler (varsa)
+
+Belirtilen süre içinde yanıt gelmemesi hâlinde makale reddedilecek ve gerektiğinde kurumunuz bilgilendirilecektir.
+
+Saygılarımızla, ODÜSOBİAD Editörlüğü`
+        }
+      },
+
+      {
+        id: 'e2', role: 'eic', stage: 'integrity',
+        cope: true, scopus: false,
+        title: { en: 'Duplicate Submission Notification', tr: 'Çift Gönderim Tespiti Bildirimi' },
+        subject: {
+          en: 'Duplicate Submission Notification — ODÜSOBİAD [Ref: {ID}]',
+          tr: 'Çift Gönderim Tespiti Bildirimi — ODÜSOBİAD [Ref: {ID}]'
+        },
+        body: {
+          en: `Dear author,
+
+It has been detected that "[Manuscript Title]" (No: [XXXXXXX]) is also under review at another journal or has been published elsewhere.
+
+Simultaneous multiple submission is prohibited per our policy and constitutes a COPE ethics violation. Failure to provide a written explanation within [__] days will result in rejection and notification to relevant parties.
+
+Sincerely, ODÜSOBİAD Editorial Office`,
+          tr: `Sayın yazar,
+
+"[Makale Başlığı]" başlıklı makalenizin (No: [XXXXXXX]) başka bir dergide de değerlendirmede olduğu veya yayımlandığı tespit edilmiştir.
+
+Dergimizin gönderim politikası uyarınca eş zamanlı çoklu gönderim kabul edilmemektedir. COPE yönergelerine göre bu durum yayın etiği ihlali teşkil etmektedir. [__] gün içinde yazılı açıklama yapmamanız hâlinde makaleniz reddedilecek ve gerekli mercilere bildirim yapılacaktır.
+
+Saygılarımızla, ODÜSOBİAD Editörlüğü`
+        }
+      },
+
+      {
+        id: 'e3', role: 'eic', stage: 'integrity',
+        cope: true, scopus: false,
+        title: { en: 'Authorship Dispute Notice', tr: 'Yazarlık İtirazı Bildirimi' },
+        subject: {
+          en: 'Authorship Dispute Notice — ODÜSOBİAD [Ref: {ID}]',
+          tr: 'Yazarlık İtirazı Bildirimi — ODÜSOBİAD [Ref: {ID}]'
+        },
+        body: {
+          en: `Dear author(s),
+
+An authorship dispute/notification has been received for "[Manuscript Title]" (No: [XXXXXXX]). Our journal is investigating per COPE guidelines; however, resolution is the responsibility of the parties.
+
+Within [__] days, a written agreement signed by all authors must be uploaded, or an explanation provided.
+
+Sincerely, ODÜSOBİAD Editorial Office`,
+          tr: `Sayın yazar(lar),
+
+"[Makale Başlığı]" başlıklı makale (No: [XXXXXXX]) için yazarlık konusunda bir itiraz/bildirim alınmıştır. COPE yönergelerine uygun olarak dergimiz bu konuyu soruşturmaktadır; ancak yazarlar arasındaki anlaşmazlıkların çözümü taraflara aittir.
+
+[__] gün içinde tüm yazarların imzaladığı yazılı bir mutabakat belgesi sisteme yüklenmeli ya da duruma ilişkin açıklama yapılmalıdır.
+
+Saygılarımızla, ODÜSOBİAD Editörlüğü`
+        }
+      },
+
+      {
+        id: 'e4', role: 'eic', stage: 'integrity',
+        cope: true, scopus: false,
+        title: { en: 'Data / Image Manipulation Suspicion', tr: 'Veri / Görsel Manipülasyonu Şüphesi' },
+        subject: {
+          en: 'Data / Image Manipulation Suspicion — ODÜSOBİAD [Ref: {ID}]',
+          tr: 'Veri / Görsel Manipülasyonu Şüphesi — ODÜSOBİAD [Ref: {ID}]'
+        },
+        body: {
+          en: `Dear author,
+
+Concerns have been identified in "[Manuscript Title]" (No: [XXXXXXX]) regarding [data inconsistency / image manipulation / table errors]. An investigation per COPE guidelines has been initiated. Please upload raw data and/or original image files within [__] days.
+
+Sincerely, ODÜSOBİAD Editorial Office`,
+          tr: `Sayın yazar,
+
+"[Makale Başlığı]" başlıklı makalenizde (No: [XXXXXXX]) [veri tutarsızlığı / görsel manipülasyonu / tablo hatası] konusunda kaygılar tespit edilmiştir. COPE yönergeleri çerçevesinde soruşturma başlatılmış olup [__] gün içinde ham verilerinizi ve/veya orijinal görsel dosyalarınızı sisteme yüklemenizi talep ediyoruz.
+
+Saygılarımızla, ODÜSOBİAD Editörlüğü`
+        }
+      },
+
+      {
+        id: 'e5', role: 'eic', stage: 'postpub',
+        cope: true, scopus: false,
+        title: { en: 'Article Retraction Notice', tr: 'Makale Geri Çekme (Retraksiyon) Bildirimi' },
+        subject: {
+          en: 'Article Retraction Notice — ODÜSOBİAD [Ref: {ID}]',
+          tr: 'Makale Geri Çekme (Retraksiyon) Bildirimi — ODÜSOBİAD [Ref: {ID}]'
+        },
+        body: {
+          en: `Dear author(s),
+
+Serious ethical concerns have been raised for your published manuscript "[Manuscript Title]" (No: [XXXXXXX]). The Editorial Board has initiated retraction procedures per COPE guidelines.
+
+If you do not submit a written objection within [__] days, the retraction will be completed and a note added to the journal archive.
+
+Sincerely, ODÜSOBİAD Editorial Office`,
+          tr: `Sayın yazar(lar),
+
+"[Makale Başlığı]" başlıklı yayımlanmış makalenize (No: [XXXXXXX]) ilişkin ciddi etik kaygılar gündeme gelmiştir. Editörler Kurulu, COPE yönergeleri doğrultusunda makale geri çekme (retraction) prosedürünü başlatmıştır.
+
+[__] gün içinde yazılı itirazınızı iletmemeniz hâlinde geri çekme işlemi tamamlanacak ve dergi arşivine retraksiyon notu eklenecektir.
+
+Saygılarımızla, ODÜSOBİAD Editörlüğü`
+        }
+      },
+
+      {
+        id: 'e6', role: 'eic', stage: 'postpub',
+        cope: true, scopus: false,
+        title: { en: 'Expression of Concern', tr: 'Endişe İfadesi (Expression of Concern)' },
+        subject: {
+          en: 'Expression of Concern — ODÜSOBİAD [Ref: {ID}]',
+          tr: 'Endişe İfadesi (Expression of Concern) — ODÜSOBİAD [Ref: {ID}]'
+        },
+        body: {
+          en: `Dear author(s),
+
+An "Expression of Concern" note will be temporarily added to the published manuscript "[Manuscript Title]" (No: [XXXXXXX]) to inform readers during an ongoing investigation. This note will be removed or updated upon completion.
+
+Sincerely, ODÜSOBİAD Editorial Office`,
+          tr: `Sayın yazar(lar),
+
+"[Makale Başlığı]" başlıklı yayımlanmış makaleniz (No: [XXXXXXX]) hakkında devam eden soruşturma kapsamında okuyucuları bilgilendirme amacıyla makalenin yanına geçici bir "Endişe İfadesi" (Expression of Concern) notu eklenecektir. Bu not soruşturma tamamlandıktan sonra kaldırılacak veya güncellenecektir.
+
+Saygılarımızla, ODÜSOBİAD Editörlüğü`
+        }
+      },
+
+      {
+        id: 'f1', role: 'se', stage: 'review',
+        cope: false, scopus: false,
+        title: { en: 'Reviewer Invitation', tr: 'Hakem Daveti' },
+        subject: {
+          en: 'Reviewer Invitation — ODÜSOBİAD [Ref: {ID}]',
+          tr: 'Hakem Daveti — ODÜSOBİAD [Ref: {ID}]'
+        },
+        body: {
+          en: `Dear [Reviewer Name],
+
+We would like to invite you to review the manuscript titled "[Manuscript Title]". The review period is [__] days. Upon acceptance, the manuscript file will be made available via the system.
+
+Please confirm your availability within [__] days.
+
+Sincerely, ODÜSOBİAD Editorial Office`,
+          tr: `Sayın [Hakem Ad Soyad],
+
+"[Makale Başlığı]" başlıklı makale için hakem olarak görüş bildirmenizi rica etmek istiyoruz. Değerlendirme süremiz [__] gündür. Daveti kabul etmeniz hâlinde makale dosyası sisteme erişiminizle birlikte iletilecektir.
+
+Lütfen [__] gün içinde uygunluğunuzu bildirin.
+
+Saygılarımızla, ODÜSOBİAD Editörlüğü`
+        }
+      },
+
+      {
+        id: 'f2', role: 'se', stage: 'review',
+        cope: false, scopus: false,
+        title: { en: 'Reviewer Reminder', tr: 'Hakem Değerlendirme Hatırlatması' },
+        subject: {
+          en: 'Reviewer Reminder — ODÜSOBİAD [Ref: {ID}]',
+          tr: 'Hakem Değerlendirme Hatırlatması — ODÜSOBİAD [Ref: {ID}]'
+        },
+        body: {
+          en: `Dear [Reviewer Name],
+
+The deadline for your review of "[Manuscript Title]" is [DD.MM.YYYY]. If you are unable to complete the review on time, please inform us in advance as an alternative reviewer may need to be assigned.
+
+Sincerely, ODÜSOBİAD Editorial Office`,
+          tr: `Sayın [Hakem Ad Soyad],
+
+"[Makale Başlığı]" başlıklı makale için hakem değerlendirmenizin son tarihi [GG.AA.YYYY] olarak belirlenmiştir. Değerlendirmenizi tamamlayamıyorsanız lütfen önceden bilgi veriniz; alternatif hakem atanması gerekebilir.
+
+Saygılarımızla, ODÜSOBİAD Editörlüğü`
+        }
+      },
+
+      {
+        id: 'f3', role: 'sec', stage: 'production',
+        cope: false, scopus: false,
+        title: { en: 'Issue Assignment Notice', tr: 'Sayıya Atama Bildirimi' },
+        subject: {
+          en: 'Issue Assignment Notice — ODÜSOBİAD [Ref: {ID}]',
+          tr: 'Sayıya Atama Bildirimi — ODÜSOBİAD [Ref: {ID}]'
+        },
+        body: {
+          en: `Dear author,
+
+Your manuscript "[Manuscript Title]" (No: [XXXXXXX]) has been assigned to the [Vol. / No. / Year] issue. You will be notified for galley proof approval once typesetting is complete.
+
+Sincerely, ODÜSOBİAD Editorial Office`,
+          tr: `Sayın yazar,
+
+"[Makale Başlığı]" başlıklı makaleniz (No: [XXXXXXX]) [Cilt / Sayı / Yıl] sayısına atanmıştır. Dizgi süreci tamamlandığında galley proof (baskı kanıtı) onayı için tekrar bilgilendirileceksiniz.
+
+Saygılarımızla, ODÜSOBİAD Editörlüğü`
+        }
+      },
+
+      {
+        id: 'f4', role: 'layout', stage: 'proofreading',
+        cope: false, scopus: false,
+        title: { en: 'Galley Proof Approval Request', tr: 'Dizgi Kanıtı (Galley Proof) Onay Talebi' },
+        subject: {
+          en: 'Galley Proof Approval Request — ODÜSOBİAD [Ref: {ID}]',
+          tr: 'Dizgi Kanıtı (Galley Proof) Onay Talebi — ODÜSOBİAD [Ref: {ID}]'
+        },
+        body: {
+          en: `Dear author,
+
+The galley proof of "[Manuscript Title]" (No: [XXXXXXX]) has been uploaded to the Process Files section. Please review the file and confirm approval or submit correction notes within [__] days.
+
+Note: Only typesetting errors can be corrected at this stage; content changes are not permitted.
+
+Sincerely, ODÜSOBİAD Editorial Office`,
+          tr: `Sayın yazar,
+
+"[Makale Başlığı]" başlıklı makalenizin (No: [XXXXXXX]) dizgi kanıtı (galley proof) Süreç Dosyaları bölümüne eklenmiştir. Lütfen dosyayı inceleyerek [__] gün içinde onay vermenizi veya düzeltme notlarınızı iletmenizi rica ederiz.
+
+Not: Bu aşamada yalnızca dizgi kaynaklı hatalar düzeltilebilir; içerik değişikliği yapılamamaktadır.
+
+Saygılarımızla, ODÜSOBİAD Editörlüğü`
+        }
+      },
+
+      {
+        id: 'f5', role: 'sec', stage: 'production',
+        cope: false, scopus: false,
+        title: { en: 'Publication Congratulations', tr: 'Makale Yayım Tebriği' },
+        subject: {
+          en: 'Publication Congratulations — ODÜSOBİAD [Ref: {ID}]',
+          tr: 'Makale Yayım Tebriği — ODÜSOBİAD [Ref: {ID}]'
+        },
+        body: {
+          en: `Dear author,
+
+We are pleased to inform you that "[Manuscript Title]" (No: [XXXXXXX]) has been published in [Vol. X, No. Y, Year].
+
+Access link: [DOI / DergiPark URL]
+
+Thank you for your contribution and best wishes for your future work.
+
+Sincerely, ODÜSOBİAD Editorial Office`,
+          tr: `Sayın yazar,
+
+"[Makale Başlığı]" başlıklı makalenizin (No: [XXXXXXX]) [Cilt X, Sayı Y, Yıl] sayımızda yayımlandığını bildirmekten mutluluk duyarız.
+
+Erişim bağlantısı: [DOI / DergiPark URL]
+
+Katkınız için teşekkür eder, gelecekteki çalışmalarınızda başarılar dileriz.
+
+Saygılarımızla, ODÜSOBİAD Editörlüğü`
+        }
+      },
+
+      {
+        id: 'f6', role: 'eic', stage: 'other',
+        cope: false, scopus: false,
+        title: { en: 'Withdrawal Request Response', tr: 'Geri Çekme Talebi Yanıtı' },
+        subject: {
+          en: 'Withdrawal Request Response — ODÜSOBİAD [Ref: {ID}]',
+          tr: 'Geri Çekme Talebi Yanıtı — ODÜSOBİAD [Ref: {ID}]'
+        },
+        body: {
+          en: `Dear author,
+
+Your withdrawal request for "[Manuscript Title]" (No: [XXXXXXX]) has been [accepted / rejected].
+
+[If accepted: The manuscript has been withdrawn from the system.]
+[If rejected: As the manuscript is currently under review, your request cannot be processed at this stage.]
+
+Sincerely, ODÜSOBİAD Editorial Office`,
+          tr: `Sayın yazar,
+
+"[Makale Başlığı]" başlıklı makalenizin (No: [XXXXXXX]) geri çekme talebi [kabul edilmiştir / reddedilmiştir].
+
+[Kabul: Makale sistem üzerinden işlemden kaldırılmıştır.]
+[Red: Makale değerlendirme aşamasında olduğundan geri çekme talebiniz bu aşamada işleme alınamamaktadır.]
+
+Saygılarımızla, ODÜSOBİAD Editörlüğü`
+        }
+      }
+    ]
+  };
+  global.ODUSOBIAD_MESSAGES = ODUSOBIAD_MESSAGES;
+})(typeof window !== 'undefined' ? window : (typeof global !== 'undefined' ? global : this));
+</script>
+<style>
+:root {
+  --ink:#1a1a2e;
+  --navy-deep:#0F2744;--navy:#1B4F8A;--navy-light:#3A6FA5;
+  --gold:#C4941A;--gold-light:#D4A83A;--gold-bg:#FFF8E6;
+  --blue-mist:#E3ECF7;--blue-xlight:#F0F5FB;--blue-ghost:#F7FAFD;
+  --gray-row:#F5F5F5;--muted:#666666;--muted-light:#888888;--border:#D0DCE8;--white:#fff;
+  --ok:#1B5E20;--ok-bg:#E8F5E9;--warn:#E65100;--warn-bg:#FFF3E0;--err:#C00000;--err-bg:#FDECEA;
+  --yellow-bg:#FFFDE7;
+  --shadow-sm:0 1px 4px rgba(15,39,68,.07);--shadow-md:0 4px 20px rgba(15,39,68,.11);
+  --shadow-lg:0 12px 48px rgba(15,39,68,.18);--r:10px;--r-sm:6px;
+  --font-head:'Libre Baskerville',Georgia,serif;--font-body:'Source Sans 3',system-ui,sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--font-body);font-size:14px;line-height:1.65;color:var(--ink);background:var(--blue-ghost);min-height:100vh}
+a{color:var(--navy);text-decoration:none}a:hover{text-decoration:underline}
+button{font-family:inherit;cursor:pointer;border:none;background:none}
+
+/* HEADER */
+.site-header{background:linear-gradient(135deg,#081A30 0%,var(--navy-deep) 40%,#1A3D6B 100%);color:var(--white);padding:0 28px;position:sticky;top:0;z-index:200;box-shadow:0 3px 20px rgba(15,39,68,.35)}
+.header-inner{max-width:1340px;margin:0 auto;display:flex;align-items:center;gap:22px;height:72px}
+.brand{display:flex;align-items:center;gap:14px;flex-shrink:0}
+.brand-badge{width:48px;height:48px;background:linear-gradient(135deg,var(--gold) 0%,#D4A83A 100%);border-radius:10px;display:flex;align-items:center;justify-content:center;font-family:var(--font-head);font-size:11px;font-weight:700;color:var(--navy-deep);letter-spacing:-.5px;flex-shrink:0;line-height:1;box-shadow:0 2px 8px rgba(196,148,26,.3)}
+.brand-text{line-height:1.2}
+.brand-name{font-family:var(--font-head);font-size:15px;font-weight:700;color:var(--white)}
+.brand-sub{font-size:10px;color:#8BADE0;letter-spacing:1.5px;text-transform:uppercase}
+.header-divider{width:1px;height:40px;background:rgba(255,255,255,.15)}
+.header-title{font-family:var(--font-head);font-size:18px;font-weight:700;color:var(--gold);flex:1}
+.header-ver{font-size:10px;color:#8BADE0;font-weight:600;letter-spacing:1px;background:rgba(255,255,255,.08);padding:3px 10px;border-radius:12px}
+.lang-toggle{display:flex;gap:4px;background:rgba(255,255,255,.08);border-radius:22px;padding:3px;flex-shrink:0}
+.lang-btn{padding:5px 16px;border-radius:18px;font-size:12px;font-weight:600;color:rgba(255,255,255,.6);transition:all .2s;letter-spacing:.5px}
+.lang-btn.active{background:var(--gold);color:var(--navy-deep)}
+.lang-btn:hover:not(.active){color:var(--white)}
+
+/* LAYOUT */
+.app{max-width:1340px;margin:0 auto;display:grid;grid-template-columns:274px 1fr;gap:24px;padding:24px 28px;align-items:start}
+@media(max-width:940px){.app{grid-template-columns:1fr;padding:16px}.sidebar{position:static!important}}
+
+/* SIDEBAR */
+.sidebar{position:sticky;top:96px;display:flex;flex-direction:column;gap:16px}
+.panel{background:var(--white);border:1px solid var(--border);border-radius:var(--r);overflow:hidden;box-shadow:var(--shadow-sm)}
+.panel-head{background:var(--navy-deep);color:var(--white);font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:10px 14px;display:flex;align-items:center;gap:6px}
+.panel-head::before{content:'';width:3px;height:14px;background:var(--gold);border-radius:2px;flex-shrink:0}
+.search-wrap{padding:12px;border-bottom:1px solid var(--border)}
+.search-input{width:100%;padding:9px 12px 9px 34px;border:1.5px solid var(--border);border-radius:7px;font-family:inherit;font-size:13px;color:var(--ink);background:var(--blue-ghost) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' fill='none' viewBox='0 0 24 24'%3E%3Ccircle cx='11' cy='11' r='7' stroke='%23888' stroke-width='2'/%3E%3Cpath d='M20 20l-3.5-3.5' stroke='%23888' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E") no-repeat 11px center;transition:border-color .2s}
+.search-input:focus{outline:none;border-color:var(--navy);background-color:var(--white)}
+.filter-group{padding:10px 12px;border-bottom:1px solid var(--border)}
+.filter-group:last-child{border-bottom:none}
+.filter-label{font-size:10px;font-weight:700;color:var(--muted);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:8px;display:block}
+.filter-options{display:flex;flex-direction:column;gap:3px}
+.filter-chip{display:flex;align-items:center;gap:8px;padding:5px 8px;border-radius:var(--r-sm);cursor:pointer;transition:background .15s;user-select:none;font-size:12.5px}
+.filter-chip:hover{background:var(--blue-mist)}
+.filter-chip.active{background:var(--blue-mist);font-weight:600}
+.filter-chip-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+.filter-chip-count{margin-left:auto;background:var(--blue-xlight);color:var(--muted);font-size:10px;font-weight:700;padding:1px 7px;border-radius:10px}
+.filter-chip.active .filter-chip-count{background:var(--navy-deep);color:var(--white)}
+.clear-btn{display:block;width:calc(100% - 24px);margin:10px 12px;padding:8px;background:var(--blue-ghost);border:1.5px solid var(--border);border-radius:7px;font-size:12px;font-weight:600;color:var(--muted);text-align:center;transition:all .2s}
+.clear-btn:hover{background:var(--blue-mist);color:var(--navy-deep);border-color:var(--navy)}
+
+/* MAIN */
+.main{min-width:0}
+.stats-bar{background:var(--white);border:1px solid var(--border);border-radius:var(--r);display:grid;grid-template-columns:repeat(5,1fr);overflow:hidden;box-shadow:var(--shadow-sm);margin-bottom:20px}
+.stat-cell{padding:16px 8px;text-align:center;border-right:1px solid var(--border);background:var(--white)}
+.stat-cell:last-child{border-right:none}
+.stat-cell:first-child{background:var(--navy-deep)}
+.stat-cell:first-child .stat-num{color:var(--gold)}
+.stat-cell:first-child .stat-lbl{color:#8BADE0}
+.stat-num{font-size:26px;font-weight:700;color:var(--navy-deep);font-family:var(--font-head)}
+.stat-lbl{font-size:9px;color:var(--muted);text-transform:uppercase;letter-spacing:1.2px;margin-top:3px}
+.results-bar{display:flex;align-items:center;gap:12px;margin-bottom:16px;flex-wrap:wrap}
+.results-count{font-size:13px;color:var(--muted)}
+.results-count strong{color:var(--navy-deep);font-size:22px;font-weight:700}
+.results-tags{display:flex;gap:6px;flex-wrap:wrap}
+.active-filter-tag{display:flex;align-items:center;gap:4px;background:var(--blue-mist);border:1px solid var(--border);color:var(--navy-deep);font-size:11px;font-weight:600;padding:3px 8px;border-radius:12px}
+.active-filter-tag .remove{cursor:pointer;opacity:.6;font-size:13px}
+.active-filter-tag .remove:hover{opacity:1}
+
+/* CARDS */
+.cards-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:16px}
+.card{background:var(--white);border:1px solid var(--border);border-radius:var(--r);overflow:hidden;box-shadow:var(--shadow-sm);display:flex;flex-direction:column;transition:box-shadow .2s,transform .15s;animation:fadeUp .25s ease both}
+@keyframes fadeUp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+.card:hover{box-shadow:var(--shadow-md);transform:translateY(-2px)}
+.card-stripe{height:4px}
+.card-body{padding:14px 16px;flex:1;display:flex;flex-direction:column;gap:8px}
+.card-badges{display:flex;gap:5px;flex-wrap:wrap;align-items:center}
+.badge{font-size:9px;font-weight:700;padding:2px 7px;border-radius:10px;letter-spacing:.5px;text-transform:uppercase}
+.badge-role{color:var(--white)}
+.badge-stage{background:var(--blue-mist);color:var(--navy-deep);border:1px solid var(--border)}
+.badge-section{color:#fff;font-size:10px;font-weight:800;letter-spacing:.3px}
+.badge-cope{background:#C00000;color:#fff}
+.badge-scopus{background:#E65100;color:#fff}
+.card-title{font-family:var(--font-head);font-size:13.5px;font-weight:700;color:var(--ink);line-height:1.35}
+.card-preview{font-size:12px;color:var(--muted);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;flex:1;line-height:1.5}
+.card-footer{border-top:1px solid var(--border);display:flex;padding:8px 14px;gap:8px}
+.btn{display:inline-flex;align-items:center;gap:5px;padding:6px 12px;border-radius:7px;font-size:12px;font-weight:600;transition:all .15s}
+.btn-primary{background:var(--navy-deep);color:var(--white);flex:1;justify-content:center}
+.btn-primary:hover{background:var(--navy)}
+.btn-copy{background:var(--blue-ghost);color:var(--navy-deep);border:1.5px solid var(--border)}
+.btn-copy:hover{background:var(--blue-mist);border-color:var(--navy)}
+.btn-copy.copied{background:var(--ok-bg);color:var(--ok);border-color:var(--ok)}
+.no-results{grid-column:1/-1;text-align:center;padding:64px 24px;color:var(--muted)}
+.no-results .nr-icon{font-size:48px;margin-bottom:12px}
+.no-results h3{font-size:18px;color:var(--navy-deep);margin-bottom:8px}
+
+/* MODAL */
+.modal-overlay{position:fixed;inset:0;background:rgba(15,39,68,.6);backdrop-filter:blur(4px);z-index:500;display:flex;align-items:flex-start;justify-content:center;padding:32px 16px;overflow-y:auto;opacity:0;pointer-events:none;transition:opacity .2s}
+.modal-overlay.open{opacity:1;pointer-events:all}
+.modal{background:var(--white);border-radius:14px;width:100%;max-width:780px;box-shadow:var(--shadow-lg);overflow:hidden;transform:translateY(20px);transition:transform .25s cubic-bezier(.34,1.56,.64,1)}
+.modal-overlay.open .modal{transform:translateY(0)}
+.modal-header{padding:20px 24px 16px;border-bottom:1px solid var(--border);display:flex;align-items:flex-start;gap:14px;background:linear-gradient(180deg,var(--blue-ghost) 0%,var(--white) 100%)}
+.modal-header-info{flex:1}
+.modal-badges{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:8px}
+.modal-title{font-family:var(--font-head);font-size:18px;font-weight:700;color:var(--navy-deep);line-height:1.35}
+.modal-close{width:32px;height:32px;border-radius:50%;background:var(--blue-mist);color:var(--muted);font-size:18px;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background .15s,color .15s}
+.modal-close:hover{background:var(--err-bg);color:var(--err)}
+.modal-tabs{display:flex;border-bottom:2px solid var(--border);background:var(--blue-ghost);padding:0 24px;gap:4px}
+.modal-tab{padding:11px 18px;font-size:13px;font-weight:600;color:var(--muted);border-bottom:3px solid transparent;margin-bottom:-2px;transition:color .15s,border-color .15s}
+.modal-tab.active{color:var(--navy-deep);border-color:var(--gold)}
+.modal-tab:hover:not(.active){color:var(--navy)}
+.modal-content{padding:0}
+.modal-pane{display:none}
+.modal-pane.active{display:block}
+.modal-section{padding:16px 24px;border-bottom:1px solid var(--border)}
+.modal-section:last-child{border-bottom:none}
+.modal-section-label{font-size:10px;font-weight:700;color:var(--muted);letter-spacing:2px;text-transform:uppercase;margin-bottom:6px}
+.modal-subject-value{font-size:14px;font-style:italic;color:var(--ink);background:var(--blue-ghost);padding:10px 14px;border-radius:7px;border-left:3px solid var(--gold)}
+.modal-body-text{font-size:13.5px;line-height:1.8;white-space:pre-wrap;font-family:'Source Sans 3',monospace;color:var(--ink);background:var(--blue-ghost);padding:18px;border-radius:7px;max-height:420px;overflow-y:auto}
+.modal-footer{padding:14px 24px;background:var(--blue-xlight);border-top:1px solid var(--border);display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.modal-footer .btn-copy-full{display:inline-flex;align-items:center;gap:6px;padding:10px 20px;background:var(--navy-deep);color:var(--white);border-radius:8px;font-size:13px;font-weight:600;transition:background .15s}
+.modal-footer .btn-copy-full:hover{background:var(--navy)}
+.modal-footer .btn-copy-full.copied{background:var(--ok)}
+.modal-footer .btn-copy-subject{display:inline-flex;align-items:center;gap:6px;padding:10px 20px;background:var(--white);color:var(--navy-deep);border:1.5px solid var(--border);border-radius:8px;font-size:13px;font-weight:600;transition:all .15s}
+.modal-footer .btn-copy-subject:hover{border-color:var(--navy);background:var(--blue-mist)}
+.modal-note{font-size:11px;color:var(--muted-light);margin-left:auto}
+
+/* FOOTER */
+.site-footer{margin-top:48px;background:var(--navy-deep);color:#8BADE0;text-align:center;padding:28px;font-size:12px;line-height:1.9}
+.site-footer a{color:var(--gold)}
+.site-footer strong{color:var(--white)}
+
+.toast{position:fixed;bottom:24px;right:24px;background:var(--navy-deep);color:var(--white);font-size:13px;font-weight:600;padding:10px 18px;border-radius:8px;box-shadow:var(--shadow-md);z-index:9999;opacity:0;transform:translateY(8px);transition:opacity .2s,transform .2s;pointer-events:none}
+.toast.show{opacity:1;transform:translateY(0)}
+::-webkit-scrollbar{width:6px;height:6px}
+::-webkit-scrollbar-track{background:var(--blue-ghost)}
+::-webkit-scrollbar-thumb{background:var(--border);border-radius:3px}
+::-webkit-scrollbar-thumb:hover{background:var(--navy)}
+</style>
+</head>
+<body>
+<header class="site-header">
+  <div class="header-inner">
+    <div class="brand">
+      <div class="brand-badge">ODÜ</div>
+      <div class="brand-text">
+        <div class="brand-name">ODÜSOBİAD</div>
+        <div class="brand-sub">Sosyal Bilimler Araştırmaları Dergisi</div>
+      </div>
+    </div>
+    <div class="header-divider"></div>
+    <div class="header-title">Editöryal Mesaj Bankası</div>
+    <span class="header-ver">v3.0 · 36 Şablon</span>
+    <div class="lang-toggle" id="langToggle">
+      <button class="lang-btn" data-lang="en">EN</button>
+      <button class="lang-btn active" data-lang="tr">TR</button>
+    </div>
+  </div>
+</header>
+<div class="app">
+  <aside class="sidebar">
+    <div class="panel">
+      <div class="panel-head">Arama</div>
+      <div class="search-wrap">
+        <input class="search-input" id="searchInput" type="text" placeholder="Mesaj ara…" autocomplete="off">
+      </div>
+      <div class="filter-group">
+        <span class="filter-label">Bölüm</span>
+        <div class="filter-options" id="sectionFilters"></div>
+      </div>
+      <div class="filter-group">
+        <span class="filter-label">Aşama</span>
+        <div class="filter-options" id="stageFilters"></div>
+      </div>
+      <div class="filter-group">
+        <span class="filter-label">Uyumluluk</span>
+        <div class="filter-options" id="complianceFilters"></div>
+      </div>
+      <button class="clear-btn" id="clearBtn">✕ Filtreleri temizle</button>
+    </div>
+  </aside>
+  <main class="main">
+    <div class="stats-bar">
+      <div class="stat-cell"><div class="stat-num" id="stTotal">—</div><div class="stat-lbl">Şablon</div></div>
+      <div class="stat-cell"><div class="stat-num">6</div><div class="stat-lbl">Bölüm</div></div>
+      <div class="stat-cell"><div class="stat-num" id="stStages">—</div><div class="stat-lbl">Aşama</div></div>
+      <div class="stat-cell"><div class="stat-num" id="stCope">—</div><div class="stat-lbl">COPE</div></div>
+      <div class="stat-cell"><div class="stat-num" id="stScopus">—</div><div class="stat-lbl">SCOPUS</div></div>
+    </div>
+    <div class="results-bar">
+      <div class="results-count"><strong id="visibleCount">—</strong> şablon</div>
+      <div class="results-tags" id="activeTags"></div>
+    </div>
+    <div class="cards-grid" id="cardsGrid"></div>
+  </main>
+</div>
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal" id="modal">
+    <div class="modal-header">
+      <div class="modal-header-info">
+        <div class="modal-badges" id="mBadges"></div>
+        <div class="modal-title" id="mTitle"></div>
+      </div>
+      <button class="modal-close" id="modalClose" title="Kapat">✕</button>
+    </div>
+    <div class="modal-tabs">
+      <button class="modal-tab" data-pane="en">🇬🇧 English</button>
+      <button class="modal-tab active" data-pane="tr">🇹🇷 Türkçe</button>
+    </div>
+    <div class="modal-content">
+      <div class="modal-pane" id="mpEn"></div>
+      <div class="modal-pane active" id="mpTr"></div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn-copy-full" id="mCopyFull">📋 Tam Mesajı Kopyala</button>
+      <button class="btn-copy-subject" id="mCopySubject">Konu Satırını Kopyala</button>
+      <span class="modal-note">[YER TUTUCU] → göndermeden önce doldurun</span>
+    </div>
+  </div>
+</div>
+<div class="toast" id="toast"></div>
+<footer class="site-footer">
+  <strong>ODÜSOBİAD</strong> — Ordu Üniversitesi Sosyal Bilimler Araştırmaları Dergisi<br>
+  Açık Erişim · Çift Kör Hakem · APA 7.0 · COPE & SCOPUS Uyumlu<br>
+  <a href="https://dergipark.org.tr/tr/pub/odusobiad" target="_blank">dergipark.org.tr/tr/pub/odusobiad</a> ·
+  <a href="mailto:odusobiad@odu.edu.tr">odusobiad@odu.edu.tr</a><br>
+  Ordu Üniversitesi, Sosyal Bilimler Enstitüsü, 52200 Altınordu – Ordu, Türkiye
+</footer>
+<script>
+(function(){
+  'use strict';
+  const D=ODUSOBIAD_MESSAGES, msgs=D.messages;
+  const secMap=Object.fromEntries(D.sections.map(s=>[s.id,s]));
+  const stgMap=Object.fromEntries(D.stages.map(s=>[s.id,s]));
+  const rolMap=Object.fromEntries(D.roles.map(r=>[r.id,r]));
+  let S={lang:'tr',q:'',secs:new Set(),stgs:new Set(),comp:new Set(),oid:null,ol:'tr'};
+  const $=id=>document.getElementById(id);
+  const sec=m=>m.id.charAt(0).toUpperCase();
+  const sc=id=>secMap[id]?.color||'#555';
+  const sn=id=>secMap[id]?.label[S.lang]||id;
+  const rc=id=>rolMap[id]?.color||'#555';
+  const rn=id=>rolMap[id]?.label[S.lang]||id;
+  const tn=id=>stgMap[id]?.label[S.lang]||id;
+
+  $('stTotal').textContent=msgs.length;
+  $('stStages').textContent=[...new Set(msgs.map(m=>m.stage))].length;
+  $('stCope').textContent=msgs.filter(m=>m.cope).length;
+  $('stScopus').textContent=msgs.filter(m=>m.scopus).length;
+
+  function bf(){
+    const sf=$('sectionFilters');sf.innerHTML='';
+    D.sections.forEach(s=>{const c=msgs.filter(m=>sec(m)===s.id).length;const e=document.createElement('div');e.className='filter-chip'+(S.secs.has(s.id)?' active':'');e.innerHTML=`<span class="filter-chip-dot" style="background:${s.color}"></span><span><b>${s.id}</b> ${s.label[S.lang]}</span><span class="filter-chip-count">${c}</span>`;e.onclick=()=>tf('secs',s.id);sf.appendChild(e);});
+    const tf2=$('stageFilters');tf2.innerHTML='';
+    D.stages.filter(s=>msgs.some(m=>m.stage===s.id)).forEach(s=>{const c=msgs.filter(m=>m.stage===s.id).length;const e=document.createElement('div');e.className='filter-chip'+(S.stgs.has(s.id)?' active':'');e.innerHTML=`<span class="filter-chip-dot" style="background:var(--border)"></span><span>${s.label[S.lang]}</span><span class="filter-chip-count">${c}</span>`;e.onclick=()=>tf('stgs',s.id);tf2.appendChild(e);});
+    const cf=$('complianceFilters');cf.innerHTML='';
+    [{id:'cope',color:'#C00000',icon:'🛡️',label:'COPE'},{id:'scopus',color:'#E65100',icon:'🔶',label:'SCOPUS'}].forEach(x=>{const c=msgs.filter(m=>m[x.id]).length;const e=document.createElement('div');e.className='filter-chip'+(S.comp.has(x.id)?' active':'');e.innerHTML=`<span class="filter-chip-dot" style="background:${x.color}"></span><span>${x.icon} ${x.label}</span><span class="filter-chip-count">${c}</span>`;e.onclick=()=>tf('comp',x.id);cf.appendChild(e);});
+  }
+  function tf(t,v){S[t].has(v)?S[t].delete(v):S[t].add(v);render();}
+  function fl(){const q=S.q.toLowerCase().trim();return msgs.filter(m=>{if(S.secs.size&&!S.secs.has(sec(m)))return false;if(S.stgs.size&&!S.stgs.has(m.stage))return false;if(S.comp.size&&![...S.comp].some(c=>m[c]))return false;if(!q)return true;return[m.id,m.title[S.lang],m.subject[S.lang],m.body[S.lang]].join(' ').toLowerCase().includes(q);});}
+  function rt(){const w=$('activeTags');w.innerHTML='';S.secs.forEach(id=>{const s=secMap[id];const t=document.createElement('span');t.className='active-filter-tag';t.innerHTML=`<b>${id}</b> ${s.label[S.lang]} <span class="remove" data-t="secs" data-v="${id}">×</span>`;w.appendChild(t);});S.stgs.forEach(id=>{const s=stgMap[id];const t=document.createElement('span');t.className='active-filter-tag';t.innerHTML=`${s.label[S.lang]} <span class="remove" data-t="stgs" data-v="${id}">×</span>`;w.appendChild(t);});S.comp.forEach(id=>{const L={cope:'COPE',scopus:'SCOPUS'};const t=document.createElement('span');t.className='active-filter-tag';t.innerHTML=`${L[id]} <span class="remove" data-t="comp" data-v="${id}">×</span>`;w.appendChild(t);});w.querySelectorAll('.remove').forEach(b=>{b.onclick=e=>{e.stopPropagation();S[b.dataset.t].delete(b.dataset.v);render();};});}
+  function bc(m){const s=sec(m),col=sc(s),rl=rc(m.role);const c=document.createElement('div');c.className='card';const pv=(m.body[S.lang]||'').split('\n').find(l=>l.trim().length>10)||'';const cb=m.cope?'<span class="badge badge-cope">COPE</span>':'';const sb=m.scopus?'<span class="badge badge-scopus">SCOPUS</span>':'';c.innerHTML=`<div class="card-stripe" style="background:${col}"></div><div class="card-body"><div class="card-badges"><span class="badge badge-section" style="background:${col}">${m.id.toUpperCase()}</span><span class="badge badge-role" style="background:${rl}">${rolMap[m.role]?.icon||''} ${rn(m.role)}</span><span class="badge badge-stage">${tn(m.stage)}</span>${cb}${sb}</div><div class="card-title">${m.title[S.lang]}</div><div class="card-preview">${pv.replace(/[<>]/g,'')}</div></div><div class="card-footer"><button class="btn btn-primary ob">Şablonu Gör</button><button class="btn btn-copy cb">📋</button></div>`;c.querySelector('.ob').onclick=()=>om(m.id);c.querySelector('.cb').onclick=e=>{e.stopPropagation();const b=e.currentTarget;ct(m.body[S.lang]);b.textContent='✓';b.classList.add('copied');setTimeout(()=>{b.textContent='📋';b.classList.remove('copied');},2000);};return c;}
+  function render(){bf();rt();const i=fl();$('visibleCount').textContent=i.length;const g=$('cardsGrid');g.innerHTML='';if(!i.length){g.innerHTML='<div class="no-results"><div class="nr-icon">🔍</div><h3>Şablon bulunamadı</h3><p>Farklı bir arama deneyin veya filtreleri temizleyin.</p></div>';return;}i.forEach((m,j)=>{const c=bc(m);c.style.animationDelay=Math.min(j,12)*25+'ms';g.appendChild(c);});}
+  function esc(s){return(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+  function ph(m,l){return`<div class="modal-section"><div class="modal-section-label">${l==='tr'?'Konu Satırı':'Subject Line'}</div><div class="modal-subject-value">${esc(m.subject[l])}</div></div><div class="modal-section"><div class="modal-section-label">${l==='tr'?'Mesaj Gövdesi':'Message Body'}</div><div class="modal-body-text">${esc(m.body[l])}</div></div>`;}
+  function om(id){const m=msgs.find(x=>x.id===id);if(!m)return;S.oid=id;S.ol=S.lang;const s=sec(m),col=sc(s),rl=rc(m.role);const cb=m.cope?'<span class="badge badge-cope">🛡️ COPE</span>':'';const sb=m.scopus?'<span class="badge badge-scopus">🔶 SCOPUS</span>':'';$('mBadges').innerHTML=`<span class="badge badge-section" style="background:${col}">${m.id.toUpperCase()}</span><span class="badge badge-role" style="background:${rl}">${rolMap[m.role]?.icon||''} ${rn(m.role)}</span><span class="badge badge-stage">${tn(m.stage)}</span>${cb}${sb}`;$('mTitle').textContent=m.title[S.lang];$('mpEn').innerHTML=ph(m,'en');$('mpTr').innerHTML=ph(m,'tr');document.querySelectorAll('.modal-tab').forEach(t=>t.classList.toggle('active',t.dataset.pane===S.ol));$('mpEn').classList.toggle('active',S.ol==='en');$('mpTr').classList.toggle('active',S.ol==='tr');$('modalOverlay').classList.add('open');document.body.style.overflow='hidden';}
+  function cm(){$('modalOverlay').classList.remove('open');document.body.style.overflow='';S.oid=null;}
+  document.querySelectorAll('.modal-tab').forEach(t=>{t.onclick=()=>{const p=t.dataset.pane;S.ol=p;document.querySelectorAll('.modal-tab').forEach(x=>x.classList.toggle('active',x.dataset.pane===p));$('mpEn').classList.toggle('active',p==='en');$('mpTr').classList.toggle('active',p==='tr');};});
+  $('modalClose').onclick=cm;$('modalOverlay').onclick=e=>{if(e.target===$('modalOverlay'))cm();};document.onkeydown=e=>{if(e.key==='Escape')cm();};
+  $('mCopyFull').onclick=()=>{const m=msgs.find(x=>x.id===S.oid);if(!m)return;ct(m.body[S.ol]);const b=$('mCopyFull');b.textContent='✓ Kopyalandı!';b.classList.add('copied');setTimeout(()=>{b.textContent='📋 Tam Mesajı Kopyala';b.classList.remove('copied');},2000);};
+  $('mCopySubject').onclick=()=>{const m=msgs.find(x=>x.id===S.oid);if(!m)return;ct(m.subject[S.ol]);st('Konu satırı kopyalandı!');};
+  document.querySelectorAll('.lang-btn').forEach(b=>{b.onclick=()=>{S.lang=b.dataset.lang;document.querySelectorAll('.lang-btn').forEach(x=>x.classList.toggle('active',x.dataset.lang===S.lang));render();};});
+  $('searchInput').oninput=e=>{S.q=e.target.value;render();};
+  $('clearBtn').onclick=()=>{S.secs.clear();S.stgs.clear();S.comp.clear();S.q='';$('searchInput').value='';render();};
+  function ct(t){if(navigator.clipboard)navigator.clipboard.writeText(t);else{const a=document.createElement('textarea');a.value=t;a.style.cssText='position:fixed;opacity:0';document.body.appendChild(a);a.select();document.execCommand('copy');document.body.removeChild(a);}st('📋 Panoya kopyalandı!');}
+  let tt;function st(m){const t=$('toast');t.textContent=m;t.classList.add('show');clearTimeout(tt);tt=setTimeout(()=>t.classList.remove('show'),2200);}
+  render();
+})();
+</script>
+</body>
+</html>
